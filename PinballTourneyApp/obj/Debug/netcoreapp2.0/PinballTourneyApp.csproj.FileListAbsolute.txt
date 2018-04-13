@@ -1,0 +1,11 @@
+C:\Users\Adam\lc101\PinballTourneyApp\PinballTourneyApp\bin\Debug\netcoreapp2.0\PinballTourneyApp.deps.json
+C:\Users\Adam\lc101\PinballTourneyApp\PinballTourneyApp\bin\Debug\netcoreapp2.0\PinballTourneyApp.runtimeconfig.json
+C:\Users\Adam\lc101\PinballTourneyApp\PinballTourneyApp\bin\Debug\netcoreapp2.0\PinballTourneyApp.runtimeconfig.dev.json
+C:\Users\Adam\lc101\PinballTourneyApp\PinballTourneyApp\bin\Debug\netcoreapp2.0\PinballTourneyApp.dll
+C:\Users\Adam\lc101\PinballTourneyApp\PinballTourneyApp\bin\Debug\netcoreapp2.0\PinballTourneyApp.pdb
+C:\Users\Adam\lc101\PinballTourneyApp\PinballTourneyApp\obj\Debug\netcoreapp2.0\PinballTourneyApp.csprojResolveAssemblyReference.cache
+C:\Users\Adam\lc101\PinballTourneyApp\PinballTourneyApp\obj\Debug\netcoreapp2.0\PinballTourneyApp.csproj.CoreCompileInputs.cache
+C:\Users\Adam\lc101\PinballTourneyApp\PinballTourneyApp\obj\Debug\netcoreapp2.0\PinballTourneyApp.AssemblyInfoInputs.cache
+C:\Users\Adam\lc101\PinballTourneyApp\PinballTourneyApp\obj\Debug\netcoreapp2.0\PinballTourneyApp.AssemblyInfo.cs
+C:\Users\Adam\lc101\PinballTourneyApp\PinballTourneyApp\obj\Debug\netcoreapp2.0\PinballTourneyApp.dll
+C:\Users\Adam\lc101\PinballTourneyApp\PinballTourneyApp\obj\Debug\netcoreapp2.0\PinballTourneyApp.pdb
