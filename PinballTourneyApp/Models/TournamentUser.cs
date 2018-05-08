@@ -7,6 +7,7 @@ namespace PinballTourneyApp.Models
 {
     public class TournamentUser
     {
+        
         public int TournamentID { get; set; }
         public Tournament Tournament { get; set; }
 
