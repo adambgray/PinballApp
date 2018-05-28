@@ -5,6 +5,7 @@ using PinballTourneyApp.ViewModels;
 using PinballTourneyApp.Data;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace PinballTourneyApp.Controllers
 {
@@ -19,13 +20,38 @@ namespace PinballTourneyApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            IList<User> users = context.Users.ToList();
+            ViewBag.Name = HttpContext.Session.GetString(HomeController.SessionName);
+            ViewBag.ID = HttpContext.Session.GetInt32(HomeController.SessionID);
+            return View(users);
         }
 
         public IActionResult Add()
         {
             AddUserViewModel addUserViewModel = new AddUserViewModel();
             return View(addUserViewModel);
+        }
+
+        public IActionResult ViewUser(int id)
+        {
+            User viewUser = context.Users.Single(u => u.ID == id);
+
+            List<TournamentUser> tournaments = context
+            .TournamentUsers
+            .Include(tournament => tournament.Tournament)
+            .Where(tu => tu.UserID == id)
+            .ToList();
+
+            ViewBag.Name = HttpContext.Session.GetString(HomeController.SessionName);
+            ViewBag.ID = HttpContext.Session.GetInt32(HomeController.SessionID);
+
+            ViewUserViewModel viewUserViewModel = new ViewUserViewModel()
+            {
+                User = viewUser,
+                Tournaments = tournaments,
+
+            };
+            return View(viewUserViewModel);
         }
 
         [HttpPost]
@@ -43,6 +69,10 @@ namespace PinballTourneyApp.Controllers
 
                 context.Users.Add(newUser);
                 context.SaveChanges();
+                HttpContext.Session.Clear();
+                HttpContext.Session.SetString("_Email", addUserViewModel.Email); 
+                HttpContext.Session.SetString("_Name", addUserViewModel.Name);
+
 
                 return Redirect("/User");
             }

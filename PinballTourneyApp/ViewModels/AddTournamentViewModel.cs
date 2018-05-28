@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 using PinballTourneyApp.Models;
 
+
+
 namespace PinballTourneyApp.ViewModels
 {
     public class AddTournamentViewModel
@@ -24,6 +26,10 @@ namespace PinballTourneyApp.ViewModels
 
         public List<SelectListItem> Venues { get; set; }
 
+        [Required]
+        [Display(Name = "Date and Time")]
+        public DateTime DateTime { get; set; }
+
         public AddTournamentViewModel(IEnumerable<Venue> venues)
         {
             Venues = new List<SelectListItem>();
@@ -36,5 +42,12 @@ namespace PinballTourneyApp.ViewModels
                 });
             }
         }
+
+        public AddTournamentViewModel()
+        {
+
+        }
+
+        
     }
 }

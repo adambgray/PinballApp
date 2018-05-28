@@ -1,0 +1,32 @@
+﻿@model List<PinballTourneyApp.Models.Venue>
+
+<h1>Venues</h1>
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+    </tr>
+
+    @foreach (var venue in Model)
+    {
+    <tr>
+        <td><a asp-controller="Venue"
+   asp-action="ViewVenue"
+   asp-route-id="@venue.ID">@venue.Name</a></td>
+        <td>@venue.Address</td>
+
+    </tr>
+    }
+</table>
+
+@if (Model.Count == 0)
+{
+<p>No venues yet!</p>
+}
+
+<p>
+    <a asp-controller="Venue"
+       asp-action="Add">Add</a> a new venue to the database.
+</p>

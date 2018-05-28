@@ -1,0 +1,51 @@
+﻿@model PinballTourneyApp.ViewModels.ViewTournamentViewModel
+@{
+    ViewData["Title"] = Model.Tournament.Name;
+}
+
+<h1>@Model.Tournament.Name</h1>
+<h3>@Model.Tournament.Venue.Name</h3>
+<h4>@Model.Tournament.Venue.Address</h4>
+<h3>@Model.Tournament.DateTime</h3>
+<p>@Model.Tournament.Description</p>
+<br />
+
+@if (Model.Players.Count != 0)
+{
+
+<h4>Registered Players</h4>
+<ul>
+    @foreach (var player in Model.Players)
+    {
+        <li>@player.User.Name</li>
+    }
+</ul>
+
+
+}
+
+@if (Model.Players.Count == 0)
+{
+    <p>No registered players yet!</p>
+}
+
+<br />
+
+@if (ViewBag.ID != null)
+{
+    <form asp-controller="Tournament" asp-action="AddPlayer" method="post">
+
+        <input type="hidden" value="@Model.PlayerID" asp-for="PlayerID" />
+        <input type="hidden" value="@Model.Tournament.ID" asp-for="Tournament.ID" />
+
+
+
+        <p>@ViewBag.Name, would you like to <input type="submit" value="Register" /> for this tournament?
+
+    </form>
+}
+
+@if (ViewBag.ID == null)
+{
+    <p>Please <a asp-controller="Home" asp-action="Login">Login</a> or <a asp-controller="User" asp-action="Add">Register</a> a new account to register for this tournament.</p>
+}

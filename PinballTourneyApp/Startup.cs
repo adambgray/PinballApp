@@ -26,6 +26,10 @@ namespace PinballTourneyApp
             services.AddDbContext<PinballDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);  
+            });
 
             services.AddMvc();
         }
@@ -44,6 +48,8 @@ namespace PinballTourneyApp
             }
 
             app.UseStaticFiles();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

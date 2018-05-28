@@ -1,0 +1,26 @@
+﻿@model PinballTourneyApp.ViewModels.ViewUserViewModel
+@{
+    ViewData["Title"] = Model.User.Name;
+}
+
+<h1>@Model.User.Name</h1>
+<h3>@Model.User.Email</h3>
+<br />
+<h4>Currently Registered Tournaments</h4>
+
+@foreach (var tournament in Model.Tournaments)
+{
+<a asp-controller="Tournament"
+   asp-action="ViewTournament"
+   asp-route-id="@tournament.Tournament.ID">
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+        <div class="card-header">@tournament.Tournament.DateTime</div>
+        <div class="card-body">
+            <h4 class="card-title">
+                @tournament.Tournament.Name
+            </h4>
+            <p class="card-text">@tournament.Tournament.Description</p>
+        </div>
+    </div>
+</a>
+}

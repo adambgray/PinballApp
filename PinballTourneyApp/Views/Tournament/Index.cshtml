@@ -1,0 +1,35 @@
+﻿@model List<PinballTourneyApp.Models.Tournament>
+
+<h1>Tournaments</h1>
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Venue</th>
+        <th>Address</th>
+        <th>Date/Time</th>
+    </tr>
+
+    @foreach (var tournament in Model)
+    {
+    <tr>
+        <td><a asp-controller="Tournament"
+   asp-action="ViewTournament"
+   asp-route-id="@tournament.ID">@tournament.Name </a></td>
+        <td>@tournament.Venue.Name</td>
+        <td>@tournament.Venue.Address</td>
+        <td>@tournament.DateTime</td>
+
+    </tr>
+    }
+</table>
+
+@if (Model.Count == 0)
+{
+<p>No tournaments yet!</p>
+}
+
+<p>
+<a asp-controller="Tournament"
+   asp-action="Add">Add</a> a new tournament to the database.</p>

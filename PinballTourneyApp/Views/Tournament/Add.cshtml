@@ -1,6 +1,21 @@
 ﻿@model PinballTourneyApp.ViewModels.AddTournamentViewModel
+<head>
+    <!-- ... -->
+    <script type="text/javascript" src="../../wwwroot/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../../bower_components/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../../bower_components/jquery/src/jquery.js"></script>
+    <script type="text/javascript" src="../../bower_components/moment/src/moment.js"></script>
 
-<h1>Add Venue</h1>
+
+    <link rel="stylesheet" media="screen" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+
+</head>
+
+<body>
+<h1>Add Tournament</h1>
 
 <form asp-controller="Tournament" asp-action="Add" method="post">
 
@@ -18,8 +33,16 @@
 
     <div class="form-group">
         <label asp-for="VenueID"></label>
-        <select asp-for="VenueID" asp-items="Model.Venues"></select>
+        <select asp-for="VenueID" asp-items="Model.Venues" class="form-control"></select>
+        <span asp-validation-for="VenueID"></span>
     </div>
+
+    <div class="form-group">
+        <label asp-for="DateTime"></label>
+        <input class="form-control" asp-for="DateTime" type="datetime"/>
+        <span asp-validation-for="DateTime"></span>
+    </div>
+    
 
 
 
@@ -27,3 +50,4 @@
     <input type="submit" value="Add Tournament" />
 
 </form>
+</body>
