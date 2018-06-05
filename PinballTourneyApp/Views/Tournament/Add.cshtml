@@ -11,7 +11,11 @@
 
     <link rel="stylesheet" media="screen" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
-
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker();
+        });
+    </script>
 </head>
 
 <body>
@@ -37,14 +41,14 @@
         <span asp-validation-for="VenueID"></span>
     </div>
 
-    <div class="form-group">
-        <label asp-for="DateTime"></label>
-        <input class="form-control" asp-for="DateTime" type="datetime"/>
-        <span asp-validation-for="DateTime"></span>
-    </div>
-    
-
-
+    <div class="form-group" id="datetimepicker1">
+            <label asp-for="DateTime"></label>
+            <input class="form-control" asp-for="DateTime" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+                <span asp-validation-for="DateTime"></span>
+         </div>
 
 
     <input type="submit" value="Add Tournament" />
