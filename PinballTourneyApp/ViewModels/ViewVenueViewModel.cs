@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using PinballTourneyApp.Data;
+using RestSharp;
 
 namespace PinballTourneyApp.ViewModels
 {
@@ -13,7 +14,7 @@ namespace PinballTourneyApp.ViewModels
     {
         public Venue Venue { get; set; }
         public IList<Tournament> Tournaments { get; set; }
-    
+        public IRestResponse Response { get; set; }
 
         public ViewVenueViewModel()
             {

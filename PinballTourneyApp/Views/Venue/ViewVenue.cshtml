@@ -6,23 +6,24 @@
 <h1>@Model.Venue.Name</h1>
 <h3>@Model.Venue.Address</h3>
 <br />
+
 <h4>Current Tournaments</h4>
 
 @foreach (var tournament in Model.Tournaments)
 {
-<a asp-controller="Tournament"
-   asp-action="ViewTournament"
-   asp-route-id="@tournament.ID">
-    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
-        <div class="card-header">@tournament.DateTime</div>
-        <div class="card-body">
-            <h4 class="card-title">
-                @tournament.Name
-            </h4>
-            <p class="card-text">@tournament.Description</p>
+    <a asp-controller="Tournament"
+       asp-action="ViewTournament"
+       asp-route-id="@tournament.ID">
+        <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+            <div class="card-header">@tournament.DateTime</div>
+            <div class="card-body">
+                <h4 class="card-title">
+                    @tournament.Name
+                </h4>
+                <p class="card-text">@tournament.Description</p>
+            </div>
         </div>
-    </div>
-</a>
+    </a>
 }
 
 <br />
@@ -31,9 +32,10 @@
 @if (ViewBag.ID != null)
 {
 
-        <p>
-            @ViewBag.Name, would you like to <a asp-controller="Tournament"
-                                                asp-action="Add">Add</a> a new tournament at this venue?</p>
+    <p>
+        @ViewBag.Name, would you like to <a asp-controller="Tournament"
+                                            asp-action="Add">Add</a> a new tournament at this venue?
+    </p>
 
 }
 

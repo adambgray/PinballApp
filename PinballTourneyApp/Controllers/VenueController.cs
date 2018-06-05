@@ -5,6 +5,7 @@ using PinballTourneyApp.ViewModels;
 using PinballTourneyApp.Data;
 using System.Linq;
 using Microsoft.AspNetCore.Http;
+using RestSharp;
 
 namespace PinballTourneyApp.Controllers
 {
@@ -37,7 +38,6 @@ namespace PinballTourneyApp.Controllers
             ViewBag.Name = HttpContext.Session.GetString(HomeController.SessionName);
             ViewBag.ID = HttpContext.Session.GetInt32(HomeController.SessionID);
 
-            
             ViewVenueViewModel viewVenueViewModel = new ViewVenueViewModel()
             {
                 Venue = viewVenue,

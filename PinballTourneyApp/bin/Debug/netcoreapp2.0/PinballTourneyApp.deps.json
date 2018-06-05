@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "03c25da35ea88bc81c81c2546d2d3e9f47c4a287"
+    "signature": "15288180544b2c88142b00197803ceb115ec0a87"
   },
   "compilationOptions": {
     "defines": [
@@ -30,7 +30,8 @@
           "Microsoft.AspNetCore.Session": "2.0.3",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.1",
           "Microsoft.NETCore.App": "2.0.0",
-          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.2"
+          "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.2",
+          "RestSharp": "106.3.0"
         },
         "runtime": {
           "PinballTourneyApp.dll": {}
@@ -2551,6 +2552,14 @@
         },
         "compile": {
           "lib/netstandard1.0/Remotion.Linq.dll": {}
+        }
+      },
+      "RestSharp/106.3.0": {
+        "runtime": {
+          "lib/netstandard2.0/RestSharp.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/RestSharp.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -5547,6 +5556,13 @@
       "sha512": "sha512-IJn0BqkvwEDpP+2qjvci7n4/a9f7DhKESLWb2/uG4xQh3rTkGTBUz69bI4IivCoKkTFAqjXxYDZw2K/npohjsw==",
       "path": "remotion.linq/2.1.1",
       "hashPath": "remotion.linq.2.1.1.nupkg.sha512"
+    },
+    "RestSharp/106.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4ObVo8XyYZ5jcOGFLXv1L8Qias6g46DAIj7ej27vUEDrbX/VwJrd0h75dlTowDIu41TBBfoBUGoQQW0cv5wfFQ==",
+      "path": "restsharp/106.3.0",
+      "hashPath": "restsharp.106.3.0.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
       "type": "package",
