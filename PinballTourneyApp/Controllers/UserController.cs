@@ -6,6 +6,8 @@ using PinballTourneyApp.Data;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
+using System.Security.Cryptography;
+using RestSharp.Extensions;
 
 namespace PinballTourneyApp.Controllers
 {
@@ -75,6 +77,9 @@ namespace PinballTourneyApp.Controllers
             {
                 ModelState.AddModelError("Password", "Password must contain at least one of each(Uppercase, Lowercase, Integer, and Special Character.");
             }
+
+            PasswordHash hash = new PasswordHash(addUserViewModel.Password);
+            byte[] hashBytes = hash.ToArray();
 
             if (ModelState.IsValid)
                 {
