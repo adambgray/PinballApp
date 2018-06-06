@@ -57,9 +57,27 @@ namespace PinballTourneyApp.Controllers
         [HttpPost]
         public IActionResult Add(AddUserViewModel addUserViewModel)
         {
-            if (ModelState.IsValid)
+            if (addUserViewModel.Confirm != addUserViewModel.Password)
             {
+                ModelState.AddModelError("Confirm", "Password and confirmation must match.");
+            }
 
+            HashSet<char> specialCharacters = new HashSet<char>() { '%', '$', '#', '!' };
+
+            if (addUserViewModel.Password.Any(char.IsLower) && //Lower case 
+                 addUserViewModel.Password.Any(char.IsUpper) &&
+                 addUserViewModel.Password.Any(char.IsDigit) &&
+                 addUserViewModel.Password.Any(specialCharacters.Contains))
+            {
+                
+            }
+            else
+            {
+                ModelState.AddModelError("Password", "Password must contain at least one of each(Uppercase, Lowercase, Integer, and Special Character.");
+            }
+
+            if (ModelState.IsValid)
+                {
                 User newUser = new User
                 {
                     Name = addUserViewModel.Name,
